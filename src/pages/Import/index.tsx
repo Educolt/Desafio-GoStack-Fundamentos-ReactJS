@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -30,6 +31,7 @@ const Import: React.FC = () => {
         data.append('file', upFile.file);
 
         try {
+          // eslint-disable-next-line no-await-in-loop
           await api.post('/transactions/import', data);
         } catch (err) {
           console.log(err.response.error);
